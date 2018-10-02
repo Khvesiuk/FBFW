@@ -24,10 +24,10 @@
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
-		<key>Pods-FBFW.xcscheme</key>
+		<key>Pods-FBFW.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
-			<false/>
+			<true/>
 			<key>orderHint</key>
 			<integer>5</integer>
 		</dict>
