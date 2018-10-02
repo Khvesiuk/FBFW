@@ -13,9 +13,13 @@
 		C6A3BDE02163AD77009C7AC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6A3BDDF2163AD77009C7AC8 /* Assets.xcassets */; };
 		C6A3BDE32163AD77009C7AC8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6A3BDE12163AD77009C7AC8 /* LaunchScreen.storyboard */; };
 		C6A3BDE62163AD77009C7AC8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A3BDE52163AD77009C7AC8 /* main.m */; };
+		D7B004B710B660A4C0910BD6 /* libPods-FBFW.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BA1AC517F9B4F9964793675 /* libPods-FBFW.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		28B9228F9B7FEB4978FD2348 /* Pods-FBFW.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FBFW.release.xcconfig"; path = "Pods/Target Support Files/Pods-FBFW/Pods-FBFW.release.xcconfig"; sourceTree = "<group>"; };
+		5BA1AC517F9B4F9964793675 /* libPods-FBFW.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FBFW.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8901161B38AC228A6C8410A4 /* Pods-FBFW.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FBFW.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FBFW/Pods-FBFW.debug.xcconfig"; sourceTree = "<group>"; };
 		C6A3BDD32163AD76009C7AC8 /* FBFW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FBFW.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6A3BDD62163AD76009C7AC8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C6A3BDD72163AD76009C7AC8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -33,17 +37,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7B004B710B660A4C0910BD6 /* libPods-FBFW.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03C300B5EA159873B7E3B111 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8901161B38AC228A6C8410A4 /* Pods-FBFW.debug.xcconfig */,
+				28B9228F9B7FEB4978FD2348 /* Pods-FBFW.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		C6A3BDCA2163AD76009C7AC8 = {
 			isa = PBXGroup;
 			children = (
 				C6A3BDD52163AD76009C7AC8 /* FBFW */,
 				C6A3BDD42163AD76009C7AC8 /* Products */,
+				03C300B5EA159873B7E3B111 /* Pods */,
+				D7F1594F285BD37745740890 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,6 +87,14 @@
 			path = FBFW;
 			sourceTree = "<group>";
 		};
+		D7F1594F285BD37745740890 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5BA1AC517F9B4F9964793675 /* libPods-FBFW.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -78,9 +102,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C6A3BDE92163AD77009C7AC8 /* Build configuration list for PBXNativeTarget "FBFW" */;
 			buildPhases = (
+				01BBF9AE2B9444AE5EF38B06 /* [CP] Check Pods Manifest.lock */,
 				C6A3BDCF2163AD76009C7AC8 /* Sources */,
 				C6A3BDD02163AD76009C7AC8 /* Frameworks */,
 				C6A3BDD12163AD76009C7AC8 /* Resources */,
+				648809C20BDF3F715F145DF3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -135,6 +161,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		01BBF9AE2B9444AE5EF38B06 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FBFW-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		648809C20BDF3F715F145DF3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FBFW/Pods-FBFW-resources.sh",
+				"${PODS_ROOT}/FBSDKCoreKit/FacebookSDKStrings.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FacebookSDKStrings.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FBFW/Pods-FBFW-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C6A3BDCF2163AD76009C7AC8 /* Sources */ = {
@@ -283,6 +348,7 @@
 		};
 		C6A3BDEA2163AD77009C7AC8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8901161B38AC228A6C8410A4 /* Pods-FBFW.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -300,6 +366,7 @@
 		};
 		C6A3BDEB2163AD77009C7AC8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28B9228F9B7FEB4978FD2348 /* Pods-FBFW.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
